@@ -1,0 +1,1 @@
+web: bundle exec ruby releventworship.rb -p $PORT
