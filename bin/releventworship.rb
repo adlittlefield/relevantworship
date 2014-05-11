@@ -17,23 +17,26 @@ blacklist
 exclude "hi", "spammer", "junk"
 
 
-lyric_urls = ['http://www.metrolyrics.com/hillsong-united-lyrics.html', 'http://www.metrolyrics.com/phil-wickham-lyrics.html', 'http://www.metrolyrics.com/chris-tomlin-lyrics.html', 'http://www.metrolyrics.com/kristian-stanfill-lyrics.html', 'http://www.metrolyrics.com/christy-nockels-lyrics.html', 'http://www.metrolyrics.com/david-crowder-lyrics.html', 'http://www.metrolyrics.com/matt-redman-lyrics.html']
+lyric_urls = ['http://www.metrolyrics.com/hillsong-united-lyrics.html', 'http://www.metrolyrics.com/phil-wickham-lyrics.html', 'http://www.metrolyrics.com/chris-tomlin-lyrics.html', 'http://www.metrolyrics.com/kristian-stanfill-lyrics.html', 'http://www.metrolyrics.com/christy-nockels-lyrics.html', 'http://www.metrolyrics.com/david-crowder-lyrics.html', 'http://www.metrolyrics.com/matt-redman-lyrics.html', 'http://www.metrolyrics.com/kari-jobe-lyrics.html']
 html_shit = ['<p class="verse">', '</p>', '<br>']
 teen_nouns = ['YOLO', 'Snapchat', 'selfie', 'instagram', 'swag']
 teen_adjectives = ['cray', 'totes', 'awesomesauce', 'thirsty', 'ratchet', 'turnt up']
 teen_verbs = ['throw shade on', 'SMH', 'literally cant even', 'turn down for what', 'twerk', 'put on blast']
-teen_people = ['#oomf', 'Bae', 'Shawty', 'Miley', 'Pharrell\'s Hat']
+teen_people = ['#oomf', 'Bae', 'Shawty', 'Miley', 'Pharrell\'s Hat', 'Bieber', 'Directioners']
 christianism_nouns = ['word', 'Eternity', 'eternity', 'Grace', 'grace', 'heart', 'cross', 'soul', 'love', 'Spirit', 'spirit', 'grave', 'glory', 'light']
 christianism_adjectives = ['holy', 'completely', 'everlasting', 'great']
 christianism_verbs = ['shine', 'worship', 'fill', 'consume', 'pray', 'seek', 'defeat', 'defeated', 'praise']
 christianism_people = ['Lamb', 'Jesus', 'Savior', 'Lord', 'Father', 'King', 'God', 'Creation']
 
+loop do
 
 newverse = false
+$tweet_length = 142
 
+until $tweet_length < 141
 until html_shit.all? { |w| newverse =~ /#{w}/ }
 	until ( christianism_nouns.any? { |w| newverse =~ /#{w}/ } or christianism_adjectives.any?  { |w| newverse =~ /#{w}/ } or christianism_verbs.any? { |w| newverse =~ /#{w}/ } or christianism_people.any?  { |w| newverse =~ /#{w}/ } )
-		PAGE_URL = lyric_urls[rand(7)]
+		PAGE_URL = lyric_urls[rand(8)]
 		page = Nokogiri::HTML(open(PAGE_URL))
 		links = page.css("td a")
 		songurl = links[rand(12)]["href"] 
@@ -62,7 +65,7 @@ end
 		christianism_nouns.each { |x| no_html3.gsub!("#{x}", teen_nouns[rand(5)]) }
 		christianism_adjectives.each { |x| no_html3.gsub!("#{x}", teen_adjectives[rand(5)]) }
 		christianism_verbs.each { |x| no_html3.gsub!("#{x}", teen_verbs[rand(5)]) }
-		christianism_people.each { |x| no_html3.gsub!("#{x}", teen_people[rand(5)]) }
+		christianism_people.each { |x| no_html3.gsub!("#{x}", teen_people[rand(7)]) }
 		puts no_html3
 	
 		puts "------------------------------------------------------"
@@ -75,8 +78,9 @@ end
 	
 		$tweet_this_lyric = no_html3.to_s
 	
+end
 
-if $tweet_length < 140
+if $tweet_length <= 140
 	puts "yep"
 	puts $tweet_this_lyric
 	tweet "#{$tweet_this_lyric}"
@@ -85,4 +89,8 @@ else
 end
 
 update_config
+
+sleep 900
+
+end
 
