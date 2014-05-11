@@ -28,8 +28,6 @@ christianism_adjectives = ['holy', 'completely', 'everlasting', 'great']
 christianism_verbs = ['shine', 'worship', 'fill', 'consume', 'pray', 'seek', 'defeat', 'defeated', 'praise']
 christianism_people = ['Lamb', 'Jesus', 'Savior', 'Lord', 'Father', 'King', 'God', 'Creation']
 
-loop do
-
 newverse = false
 $tweet_length = 142
 
@@ -89,8 +87,3 @@ else
 end
 
 update_config
-
-sleep 900
-
-end
-
