@@ -1,1 +1,1 @@
-web: bundle exec ruby bin/releventworship.rb -p $PORT
+web: bundle exec ruby relevantworship/bin/releventworship.rb -p $PORT

@@ -28,6 +28,7 @@ christianism_adjectives = ['holy', 'completely', 'everlasting', 'great']
 christianism_verbs = ['shine', 'worship', 'fill', 'consume', 'pray', 'seek', 'defeat', 'defeated', 'praise']
 christianism_people = ['Lamb', 'Jesus', 'Savior', 'Lord', 'Father', 'King', 'God', 'Creation']
 
+
 newverse = false
 $tweet_length = 142
 
