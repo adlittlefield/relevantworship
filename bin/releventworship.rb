@@ -22,7 +22,7 @@ html_shit = ['<p class="verse">', '</p>', '<br>']
 teen_nouns = ['YOLO', 'Snapchat', 'selfie', 'instagram', 'swag']
 teen_adjectives = ['cray', 'totes', 'awesomesauce', 'thirsty', 'ratchet', 'turnt up']
 teen_verbs = ['throw shade on', 'SMH', 'literally cant even', 'turn down for what', 'twerk', 'put on blast']
-teen_people = ['#oomf', 'Bae', 'Shawty', 'Miley', 'Pharrell\'s Hat', 'Bieber', 'Directioners']
+teen_people = ['Blue Ivy', 'Kimye', '#oomf', 'Bae', 'Shawty', 'Miley', 'Pharrell\'s Hat', 'Bieber', 'Directioners']
 christianism_nouns = ['word', 'Eternity', 'eternity', 'Grace', 'grace', 'heart', 'cross', 'soul', 'love', 'Spirit', 'spirit', 'grave', 'glory', 'light']
 christianism_adjectives = ['holy', 'completely', 'everlasting', 'great']
 christianism_verbs = ['shine', 'worship', 'fill', 'consume', 'pray', 'seek', 'defeat', 'defeated', 'praise']
@@ -64,7 +64,7 @@ end
 		christianism_nouns.each { |x| no_html3.gsub!("#{x}", teen_nouns[rand(5)]) }
 		christianism_adjectives.each { |x| no_html3.gsub!("#{x}", teen_adjectives[rand(5)]) }
 		christianism_verbs.each { |x| no_html3.gsub!("#{x}", teen_verbs[rand(5)]) }
-		christianism_people.each { |x| no_html3.gsub!("#{x}", teen_people[rand(7)]) }
+		christianism_people.each { |x| no_html3.gsub!("#{x}", teen_people[rand(9)]) }
 		puts no_html3
 	
 		puts "------------------------------------------------------"
